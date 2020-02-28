@@ -36,10 +36,15 @@ body {
   font-size: 62.5%; // 10px / 16px = 0.625 = 62.5%
 }
 
+$foreground: map-get($ui-theme, foreground);
 $background: map-get($ui-theme, background);
 
 .background-color {
   background-color: mat-color($background, card);
+}
+
+.hint-color {
+  color: mat-color($foreground, hint-text);
 }
 
 .w-100 {
@@ -48,4 +53,12 @@ $background: map-get($ui-theme, background);
 
 .overflow-auto {
   overflow: auto;
+}
+
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+.mid-margin {
+  margin: 3rem;
 }
