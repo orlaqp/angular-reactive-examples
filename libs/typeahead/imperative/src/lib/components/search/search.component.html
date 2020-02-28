@@ -1,5 +1,8 @@
-<mat-form-field appearance="outline" class="w-100">
-  <mat-label>Country Search</mat-label>
-  <input matInput placeholder="start typing ...">
-  <mat-icon matSuffix>search</mat-icon>
-</mat-form-field>
+<form #form="ngForm">
+  <mat-form-field appearance="outline" class="w-100">
+    <mat-label>Country Search</mat-label>
+    <input matInput placeholder="start typing ..."
+      ngModel name="criteria" (ngModelChange)="onCriteriaChanged($event)">
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+</form>

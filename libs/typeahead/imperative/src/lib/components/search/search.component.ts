@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'angular-reactive-examples-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss']
 })
-export class SearchComponent implements OnInit {
+export class SearchComponent {
+  @Output()
+  criteriaChanged = new EventEmitter();
 
-  constructor() { }
+  public criteria: string;
 
-  ngOnInit(): void {
+  onCriteriaChanged(criteria: string) {
+    this.criteriaChanged.emit(criteria);
   }
 
 }

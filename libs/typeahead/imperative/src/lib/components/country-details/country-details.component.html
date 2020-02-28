@@ -1,26 +1,32 @@
-<div fxLayout="column" class="country-info">
-  <div class="country-info__name text-right">Aruba</div>
+<div fxLayout="column" class="country-info" *ngIf="country else selectCountry">
+  <div class="country-info__name text-right">{{ country.name.official }}</div>
   <div class="country-info__common-name hint-color text-right hint-color">
-    Common Name: Aruba
+    Common Name: {{ country.name.common }}
   </div>
 
   <div fxLayout="column" fxLayoutGap="15px" class="mid-margin">
     <div fxFlex="initial" fxLayout="row" fxLayoutGap="10px">
       <div fxFlex class="country-info__property text-right hint-color">Capital</div>
-      <div fxFlex class="country-info__value">Oranjestad</div>
+      <div fxFlex class="country-info__value">{{ country.capital }}</div>
     </div>
     <div fxFlex="initial" fxLayout="row" fxLayoutGap="10px">
       <div fxFlex class="country-info__property text-right hint-color">Region</div>
-      <div fxFlex class="country-info__value">Americas</div>
+      <div fxFlex class="country-info__value">{{ country.region }}</div>
     </div>
     <div fxFlex="initial" fxLayout="row" fxLayoutGap="10px">
       <div fxFlex class="country-info__property text-right hint-color">Sub Region</div>
-      <div fxFlex class="country-info__value">Caribbean</div>
+      <div fxFlex class="country-info__value">{{ country.subregion }} </div>
     </div>
     <div fxFlex="initial" fxLayout="row" fxLayoutGap="10px">
       <div fxFlex class="country-info__property text-right hint-color">Latitude / Longitude</div>
-      <div fxFlex class="country-info__value">12.5 / -69.96</div>
+      <div fxFlex class="country-info__value">
+        {{ country.latlng[0] }} / {{ country.latlng[1] }}
+      </div>
     </div>
 
   </div>
 </div>
+
+<ng-template #selectCountry>
+  No country selected
+</ng-template>
