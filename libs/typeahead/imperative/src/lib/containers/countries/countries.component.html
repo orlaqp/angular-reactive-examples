@@ -1,0 +1,16 @@
+<div fxFlex fxLayout="column">
+  <mat-toolbar fxFlex="initial" color="primary" class="mat-elevation-z5">
+    <span>Countries a la imperative</span>
+  </mat-toolbar>
+
+  <mat-card class="country-search" fxFlex="initial" fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="start stretch">
+    <div fxFlex="30%" fxLayout="column" fxLayoutGap="10px">
+      <angular-reactive-examples-search fxFlex="initial"></angular-reactive-examples-search>
+      <angular-reactive-examples-search-result fxFlex class="overflow-auto"></angular-reactive-examples-search-result>
+    </div>
+    <mat-divider [vertical]="true"></mat-divider>
+    <angular-reactive-examples-country-details fxFlex></angular-reactive-examples-country-details>
+  </mat-card>
+
+</div>
+

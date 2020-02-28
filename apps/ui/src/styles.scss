@@ -12,7 +12,7 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$ui-primary: mat-palette($mat-indigo);
+$ui-primary: mat-palette($mat-blue, 500);
 $ui-accent: mat-palette($mat-pink, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
@@ -29,4 +29,23 @@ $ui-theme: mat-light-theme($ui-primary, $ui-accent, $ui-warn);
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #f5f4f9;
+  font-size: 62.5%; // 10px / 16px = 0.625 = 62.5%
+}
+
+$background: map-get($ui-theme, background);
+
+.background-color {
+  background-color: mat-color($background, card);
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.overflow-auto {
+  overflow: auto;
+}

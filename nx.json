@@ -26,6 +26,12 @@
     },
     "shared": {
       "tags": []
+    },
+    "typeahead-imperative": {
+      "tags": []
+    },
+    "typeahead-reactive": {
+      "tags": []
     }
   }
 }

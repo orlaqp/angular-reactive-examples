@@ -1,0 +1,17 @@
+{
+  "extends": "../../../tslint.json",
+  "rules": {
+    "directive-selector": [
+      true,
+      "attribute",
+      "angularReactiveExamples",
+      "camelCase"
+    ],
+    "component-selector": [
+      true,
+      "element",
+      "angular-reactive-examples",
+      "kebab-case"
+    ]
+  }
+}

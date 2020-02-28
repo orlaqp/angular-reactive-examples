@@ -9,7 +9,25 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    RouterModule.forRoot([], { initialNavigation: 'enabled' }),
+    RouterModule.forRoot(
+      [
+        {
+          path: 'typeahead/imperative',
+          loadChildren: () =>
+            import('@angular-reactive-examples/typeahead/imperative').then(
+              module => module.TypeaheadImperativeModule
+            )
+        },
+        {
+          path: 'typeahead/reactive',
+          loadChildren: () =>
+            import('@angular-reactive-examples/typeahead/reactive').then(
+              module => module.TypeaheadReactiveModule
+            )
+        }
+      ],
+      { initialNavigation: 'enabled' }
+    ),
     BrowserAnimationsModule
   ],
   providers: [],

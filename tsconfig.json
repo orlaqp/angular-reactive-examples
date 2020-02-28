@@ -5,6 +5,7 @@
     "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",
+    "resolveJsonModule": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
@@ -15,10 +16,17 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
+
     "paths": {
       "@angular-reactive-examples/material": ["libs/material/src/index.ts"],
       "@angular-reactive-examples/core": ["libs/core/src/index.ts"],
-      "@angular-reactive-examples/shared": ["libs/shared/src/index.ts"]
+      "@angular-reactive-examples/shared": ["libs/shared/src/index.ts"],
+      "@angular-reactive-examples/typeahead/imperative": [
+        "libs/typeahead/imperative/src/index.ts"
+      ],
+      "@angular-reactive-examples/typeahead/reactive": [
+        "libs/typeahead/reactive/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]
