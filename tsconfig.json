@@ -15,7 +15,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@angular-reactive-examples/material": ["libs/material/src/index.ts"],
+      "@angular-reactive-examples/core": ["libs/core/src/index.ts"],
+      "@angular-reactive-examples/shared": ["libs/shared/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
