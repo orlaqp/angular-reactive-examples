@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Country } from 'libs/data/interfaces';
 import { BehaviorSubject, combineLatest } from 'rxjs';
@@ -9,7 +9,8 @@ import { CountryService } from '../../country.service';
 @Component({
   selector: 'angular-reactive-examples-countries',
   templateUrl: './countries.component.html',
-  styleUrls: ['./countries.component.scss']
+  styleUrls: ['./countries.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CountriesComponent {
   public criteriaControl = new FormControl('');

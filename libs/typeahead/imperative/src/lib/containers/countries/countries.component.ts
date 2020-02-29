@@ -1,11 +1,13 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { CountryService } from '../../country.service';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Country } from 'libs/data/interfaces';
+
+import { CountryService } from '../../country.service';
 
 @Component({
   selector: 'angular-reactive-examples-countries',
   templateUrl: './countries.component.html',
-  styleUrls: ['./countries.component.scss']
+  styleUrls: ['./countries.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CountriesComponent {
   private async = false;

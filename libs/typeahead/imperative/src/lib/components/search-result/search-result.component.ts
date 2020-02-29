@@ -1,10 +1,11 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { Country } from 'libs/data/interfaces';
 
 @Component({
   selector: 'angular-reactive-examples-search-result',
   templateUrl: './search-result.component.html',
-  styleUrls: ['./search-result.component.scss']
+  styleUrls: ['./search-result.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SearchResultComponent {
   @Input()
