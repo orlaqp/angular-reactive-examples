@@ -28,5 +28,8 @@
 </div>
 
 <ng-template #selectCountry>
-  No country selected
+  <div class="not-found h-100" fxLayout="column" fxLayoutGap="20px" fxLayoutAlign="center center">
+    <img fxFlex="initial" src="/assets/images/searching.png" alt="funney searching image">
+    <div fxFlex="initial" class="hint-color">Please select a country from the search results</div>
+  </div>
 </ng-template>

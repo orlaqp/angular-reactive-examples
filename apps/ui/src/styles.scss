@@ -47,6 +47,10 @@ $background: map-get($ui-theme, background);
   color: mat-color($foreground, hint-text);
 }
 
+.h-100 {
+  height: 100%;
+}
+
 .w-100 {
   width: 100%;
 }
