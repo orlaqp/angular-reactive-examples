@@ -18,7 +18,10 @@ export class CountryService {
 
     return new Promise((resolve, reject) => {
       const filteredCountries = this.filter(criteria);
-      setTimeout(() => resolve(filteredCountries), delay * 1000)
+      setTimeout(() => {
+        console.log(`Got results for: ${criteria}`);
+        resolve(filteredCountries)
+      }, delay * 1000)
     });
   }
 

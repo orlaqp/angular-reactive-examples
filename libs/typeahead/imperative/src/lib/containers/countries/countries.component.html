@@ -5,7 +5,16 @@
 
   <mat-card class="country-search mat-elevation-z0" fxFlex="initial" fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="start stretch">
     <div fxFlex="30%" fxLayout="column" fxLayoutGap="10px">
-      <angular-reactive-examples-search fxFlex="initial" (criteriaChanged)="onCriteriaChanged($event)"></angular-reactive-examples-search>
+      <div fxFlex="initial">
+        <form #form="ngForm">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Country Search</mat-label>
+            <input matInput placeholder="start typing ..."
+              ngModel name="criteria" (ngModelChange)="onCriteriaChanged($event)">
+            <mat-icon matSuffix>search</mat-icon>
+          </mat-form-field>
+        </form>
+      </div>
       <angular-reactive-examples-search-result
         [countries]="filteredCountries" (selectedCountry)="onSelectedCountry($event)" fxFlex class="overflow-auto">
       </angular-reactive-examples-search-result>

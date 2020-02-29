@@ -8,7 +8,7 @@ import { Country } from 'libs/data/interfaces';
   styleUrls: ['./countries.component.scss']
 })
 export class CountriesComponent {
-  async = false;
+  private async = true;
 
   filteredCountries: Country[];
   selectedCountry: Country;

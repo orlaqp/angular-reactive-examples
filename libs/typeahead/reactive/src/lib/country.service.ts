@@ -16,7 +16,10 @@ export class CountryService {
 
     return new Observable(subscriber => {
       const filteredCountries = this.filter(criteria);
-      setTimeout(() => subscriber.next(filteredCountries), delay * 1000);
+      setTimeout(() => {
+        console.log(`Got results for: ${criteria}`);
+        subscriber.next(filteredCountries)
+      }, delay * 1000);
     });
   }
 
