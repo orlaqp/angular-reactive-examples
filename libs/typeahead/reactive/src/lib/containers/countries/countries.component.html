@@ -1,38 +1,46 @@
-<ng-container *ngIf="(vm$ | async) as data else nothing">
+<ng-container *ngIf="vm$ | async as data; else nothing">
+    <div fxFlex fxLayout="column">
+        <mat-toolbar fxFlex="initial" color="primary" class="mat-elevation-z5">
+            <span>Countries a la reactive</span>
+        </mat-toolbar>
 
-<div fxFlex fxLayout="column">
-  <mat-toolbar fxFlex="initial" color="primary" class="mat-elevation-z5">
-    <span>Countries a la reactive</span>
-  </mat-toolbar>
+        <mat-card
+            class="country-search mat-elevation-z0"
+            fxFlex="initial"
+            fxLayout="row"
+            fxLayoutGap="20px"
+            fxLayoutAlign="start stretch"
+        >
+            <div fxFlex="30%" fxLayout="column" fxLayoutGap="10px">
+                <div fxFlex="initial">
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Country Search</mat-label>
+                        <input
+                            matInput
+                            placeholder="start typing ..."
+                            [formControl]="criteriaControl"
+                        />
+                        <mat-icon matSuffix>search</mat-icon>
+                    </mat-form-field>
+                </div>
 
-  <mat-card class="country-search mat-elevation-z0" fxFlex="initial" fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="start stretch">
-    <div fxFlex="30%" fxLayout="column" fxLayoutGap="10px">
+                <angular-reactive-examples-search-result
+                    [countries]="data.countries"
+                    fxFlex
+                    class="overflow-auto"
+                    (selectedCountry)="onSelectedCountry($event)"
+                >
+                </angular-reactive-examples-search-result>
+            </div>
 
-      <div fxFlex="initial">
-        <mat-form-field appearance="outline" class="w-100">
-          <mat-label>Country Search</mat-label>
-          <input matInput placeholder="start typing ..." [formControl]="criteriaControl">
-          <mat-icon matSuffix>search</mat-icon>
-        </mat-form-field>
-      </div>
+            <mat-divider [vertical]="true"></mat-divider>
 
-      <angular-reactive-examples-search-result
-        [countries]="data.countries" fxFlex class="overflow-auto"
-        (selectedCountry)="onSelectedCountry($event)">
-      </angular-reactive-examples-search-result>
-
+            <angular-reactive-examples-country-details
+                [country]="data.selectedCountry"
+                fxFlex
+            ></angular-reactive-examples-country-details>
+        </mat-card>
     </div>
-
-    <mat-divider [vertical]="true"></mat-divider>
-
-    <angular-reactive-examples-country-details [country]="data.selectedCountry" fxFlex></angular-reactive-examples-country-details>
-
-  </mat-card>
-
-</div>
-
 </ng-container>
 
-
 <ng-template #nothing>Loading ...</ng-template>
-

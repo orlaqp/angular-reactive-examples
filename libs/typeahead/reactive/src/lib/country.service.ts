@@ -8,43 +8,9 @@ import { debounceTime, distinctUntilChanged, switchMap, startWith, map, tap } fr
   providedIn: 'root'
 })
 export class CountryService {
-  private criteriaSubject = new BehaviorSubject<string>('');
-  private selectedCountrySubject = new Subject<Country>();
-
-  filteredCountries$ = this.criteriaSubject.pipe(
-    startWith(''),
-    debounceTime(300),
-    distinctUntilChanged(),
-    switchMap(criteria => this.searchAsync(criteria))
-  );
-
-  countryVM$ = combineLatest([
-    // this.filteredCountries$,
-    this.selectedCountrySubject.asObservable()
-  ]).pipe(
-    map(([ filteredCountries ]) => {
-      return { filteredCountries };
-    })
-  );
-  // countryVM$ = combineLatest([
-  //   this.filteredCountries$,
-  //   this.selectedCountrySubject.asObservable()
-  // ]).pipe(
-  //   map(([ filteredCountries, selectedCountry ]) => {
-  //     return { filteredCountries, selectedCountry };
-  //   })
-  // );
-
-  public updateCriteria(criteria: string) {
-    this.criteriaSubject.next(criteria);
-  }
-
-  public updateSelectedCountry(country: Country) {
-    this.selectedCountrySubject.next(country);
-  }
 
   public searchAsync(criteria: string): Observable<Country[]> {
-    const delay = Math.floor(Math.random() * 3);
+    const delay = Math.floor(Math.random() * 2);
 
     return new Observable(subscriber => {
       const filteredCountries = this.filter(criteria);
