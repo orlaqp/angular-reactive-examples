@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CountryService } from '../../country.service';
 import { Country } from 'libs/data/interfaces';
 
@@ -8,6 +8,7 @@ import { Country } from 'libs/data/interfaces';
   styleUrls: ['./countries.component.scss']
 })
 export class CountriesComponent {
+  async = false;
 
   filteredCountries: Country[];
   selectedCountry: Country;
@@ -15,7 +16,11 @@ export class CountriesComponent {
   constructor(private countryService: CountryService) { }
 
   onCriteriaChanged(criteria: string) {
-    this.filteredCountries = this.countryService.filter(criteria);
+    if (this.async)
+      this.countryService.filterAsync(criteria)
+        .then(countries => this.filteredCountries = countries);
+    else
+      this.filteredCountries = this.countryService.filter(criteria);
   }
 
   onSelectedCountry(country: Country) {

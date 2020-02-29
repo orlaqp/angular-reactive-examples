@@ -1,0 +1,6 @@
+<mat-nav-list role="list">
+  <mat-list-item role="listitem" *ngFor="let c of countries" (click)="selectCountry(c)">
+    <div mat-line>{{ c.name.official }}</div>
+    <div mat-line class="hint-color">{{ c.region }}</div>
+  </mat-list-item>
+</mat-nav-list>

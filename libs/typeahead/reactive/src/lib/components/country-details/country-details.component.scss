@@ -1,0 +1,27 @@
+.country-info {
+
+  padding: 2rem;
+
+  &__name {
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 5px 0;
+  }
+
+  &__common-name {
+    font-size: 16px;
+    margin-top: 0;
+  }
+
+  &__property {
+    font-size: 16px;
+    line-height: 30px;
+  }
+
+  &__value {
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+}

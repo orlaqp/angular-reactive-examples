@@ -11,7 +11,7 @@ export class CountryService {
     return countries.filter(c => c.name.official.toLowerCase().includes(criteria.toLowerCase()));
   }
 
-  searchAsync(criteria: string): Promise<Country[]> {
+  filterAsync(criteria: string): Promise<Country[]> {
     const delay = Math.floor(Math.random() * 3);
 
     return new Promise((resolve, reject) => {
