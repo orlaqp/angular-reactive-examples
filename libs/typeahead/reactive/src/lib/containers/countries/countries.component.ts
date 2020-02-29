@@ -11,7 +11,7 @@ import { CountryService } from '../../country.service';
   templateUrl: './countries.component.html',
   styleUrls: ['./countries.component.scss']
 })
-export class CountriesComponent implements OnInit {
+export class CountriesComponent {
   public criteriaControl = new FormControl('');
 
   private selectedCountry = new BehaviorSubject<Country>(null);
@@ -28,10 +28,6 @@ export class CountriesComponent implements OnInit {
   );
 
   constructor(private countryService: CountryService) {}
-
-  ngOnInit(): void {
-    this.onSelectedCountry(null);
-  }
 
   onSelectedCountry(country: Country) {
     this.selectedCountry.next(country);
