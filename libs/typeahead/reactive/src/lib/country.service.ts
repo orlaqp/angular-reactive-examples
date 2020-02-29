@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Country } from '../../../../data/interfaces';
+import { Observable } from 'rxjs';
+
 import { countries } from '../../../../data/countries';
-import { BehaviorSubject, Observable, Subject, combineLatest } from 'rxjs';
-import { debounceTime, distinctUntilChanged, switchMap, startWith, map, tap } from 'rxjs/operators';
+import { Country } from '../../../../data/interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +10,8 @@ import { debounceTime, distinctUntilChanged, switchMap, startWith, map, tap } fr
 export class CountryService {
 
   public searchAsync(criteria: string): Observable<Country[]> {
+    console.log(`Sending request for: ${criteria}`);
+
     const delay = Math.floor(Math.random() * 2);
 
     return new Observable(subscriber => {

@@ -12,7 +12,9 @@ export class CountryService {
   }
 
   filterAsync(criteria: string): Promise<Country[]> {
-    const delay = Math.floor(Math.random() * 3);
+    console.log(`Sending request for: ${criteria}`);
+
+    const delay = Math.floor(Math.random() * 2);
 
     return new Promise((resolve, reject) => {
       const filteredCountries = this.filter(criteria);
